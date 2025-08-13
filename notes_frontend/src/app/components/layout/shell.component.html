@@ -1,0 +1,28 @@
+<div class="layout">
+  <aside class="sidebar" [class.open]="sidebarOpen()">
+    <div class="brand">
+      <span class="logo">📝</span>
+      <span class="name">Notes</span>
+    </div>
+    <nav class="nav">
+      <a routerLink="/notes" routerLinkActive="active">All Notes</a>
+      <a routerLink="/notes/new" routerLinkActive="active">New Note</a>
+      <a routerLink="/settings" routerLinkActive="active">Settings</a>
+    </nav>
+    <div class="spacer"></div>
+    <div class="profile" *ngIf="user() as u">
+      <div class="email">{{ u.displayName }}</div>
+      <button class="btn btn-secondary" (click)="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn" (click)="toggleSidebar()">☰</button>
+      <div class="title">Personal Notes</div>
+    </header>
+    <section class="content">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+}
+.row { display: grid; grid-template-columns: 1fr; gap: 6px; margin-top: 8px; }
+.muted { color: #666; margin-top: 10px; }

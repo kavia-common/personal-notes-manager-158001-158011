@@ -1,0 +1,13 @@
+<div class="editor-wrap">
+  <div class="actions">
+    <button class="btn btn-primary" (click)="save()">Save</button>
+    <button class="btn danger" *ngIf="noteId()" (click)="delete()">Delete</button>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="save()">
+    <input class="title" placeholder="Note title" formControlName="title" />
+    <textarea class="content" placeholder="Start typing..." formControlName="content" rows="12"></textarea>
+    <label class="tags-label">Tags (comma separated)</label>
+    <input class="tags" placeholder="e.g. work, ideas" formControlName="tagsInput" />
+  </form>
+</div>

@@ -1,16 +1,6 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Root component styles may remain minimal; layout components handle main UI */
+:host {
+  display: block;
   min-height: 100vh;
-  background-color: #ffffff;
-}
-
-h1 {
-  color: #1976d2;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: var(--color-secondary);
 }

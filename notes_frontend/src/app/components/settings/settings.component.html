@@ -1,0 +1,9 @@
+<div class="card">
+  <h3>Account</h3>
+  <div *ngIf="user() as u" class="row">
+    <div><strong>Name:</strong> {{ u.displayName }}</div>
+    <div><strong>Email:</strong> {{ u.email }}</div>
+    <div><strong>Member since:</strong> {{ u.createdAt | date:'mediumDate' }}</div>
+  </div>
+  <p class="muted">More settings coming soon.</p>
+</div>

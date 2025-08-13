@@ -1,0 +1,29 @@
+<div class="toolbar">
+  <input class="search" placeholder="Search notes..." [formControl]="qForm.controls.q" />
+  <a class="btn btn-primary" routerLink="/notes/new">New Note</a>
+</div>
+
+<div class="tags" *ngIf="allTags().length">
+  <span class="tag" [class.active]="selectedTags().includes(t)" (click)="toggleTag(t)" *ngFor="let t of allTags()">{{ t }}</span>
+</div>
+
+<div class="grid" *ngIf="filteredNotes().length; else empty">
+  <a class="card" *ngFor="let n of filteredNotes(); trackBy: trackById" [routerLink]="['/notes', n.id]">
+    <div class="title">{{ n.title || 'Untitled' }}</div>
+    <div class="excerpt">{{ n.content || 'No content' }}</div>
+    <div class="meta">
+      <div class="tags">
+        <span class="chip" *ngFor="let t of n.tags">{{ t }}</span>
+      </div>
+      <div class="date">{{ n.updatedAt | date:'short' }}</div>
+    </div>
+    <button class="delete" title="Delete" (click)="$event.preventDefault(); deleteNote(n.id)">✕</button>
+  </a>
+</div>
+
+<ng-template #empty>
+  <div class="empty">
+    <p>No notes found.</p>
+    <a routerLink="/notes/new" class="btn btn-primary">Create your first note</a>
+  </div>
+</ng-template>
